@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 class Classroom {
     static void Main(string[] args) {
@@ -21,8 +22,24 @@ class Classroom {
 
         if (UserResponse) {
             int i = 0;
-            foreach (Student s in StudentList)
-            {
+
+            // Sort the students by their surname using LinQ
+            Console.WriteLine("How do you want to order the students according to their surnames ? type 'ASC' or 'DESC'.");
+            string UserOrderByChoice = Convert.ToString(Console.ReadLine());
+
+            List<string> SortedSurnames = new List<string>();
+            foreach (Student s in StudentList) {
+                SortedSurnames.Add(s.Surname);
+            }
+            SortedSurnames.Sort();
+
+            List<Student> SortedList = new List<Student>();
+            if (UserOrderByChoice == "ASC")
+                 SortedList = StudentList.OrderBy(s => SortedSurnames.IndexOf(s.Surname)).ToList();
+            else if (UserOrderByChoice == "DESC")
+                SortedList = StudentList.OrderByDescending(s => SortedSurnames.IndexOf(s.Surname)).ToList();
+
+            foreach (Student s in SortedList) {
                 i++;
                 s.DisplayStudentInfo(i);
             }
