@@ -9,6 +9,8 @@ class Lecture {
     public void SetLectureInfo() {
         int NbProfessors = 0;
         int NbClassrooms = 0;
+        this.Professors = new List<string>();
+        this.Classrooms = new List<string>();
 
         Console.WriteLine("-------- Enter the following informations --------");
 
@@ -20,7 +22,9 @@ class Lecture {
 
         for (int i = 0; i < NbProfessors; i++) {
             Console.Write("Professor name : ");
-            this.Professors[i] = Convert.ToString(Console.ReadLine());
+            Console.Write(i);
+            string ProfName = Convert.ToString(Console.ReadLine());
+            this.Professors[i] = ProfName; 
         }
 
         Console.Write("How many classrooms ensure this lecture ?");
