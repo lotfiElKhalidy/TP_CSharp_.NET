@@ -35,28 +35,34 @@
             return map;
         }
 
-        public GamingMap AddShipToGamingMap(GamingMap map, Ship ship, int position)
+        public void AddShipToGamingMap(Ship ship, int position)
         {
-
-            // Add according to position
-
-            return map;
+            this.ShipPositionsMap[position] = 1;
         }
 
-        public GamingMap ReplaceShipInGamingMap(GamingMap map, int newPosition)
+        public void ReplaceShipInGamingMap(int actualPosition, int newPosition)
         {
-
-            // Replace position of ship
-
-            return map;
+            this.ShipPositionsMap[actualPosition] = 0;
+            this.ShipPositionsMap[newPosition] = 1;
         }
 
-        public GamingMap DeleteShipFromGamingMap(GamingMap map, int position)
+        public void DeleteShipFromGamingMap(int position)
         {
+            this.ShipPositionsMap[position] = 0;
+        }
 
-            // Delete ship according to position
+        public void AttackPlayer(int position)
+        {
+            this.WarMap[position] = 1;
 
-            return map;
+            if (this.ShipPositionsMap[position] == 1)
+            {
+                this.ShipPositionsMap[position] = 0;
+            }
+            else
+            {
+                this.ShipPositionsMap[position] = -1;
+            }
         }
 
     }

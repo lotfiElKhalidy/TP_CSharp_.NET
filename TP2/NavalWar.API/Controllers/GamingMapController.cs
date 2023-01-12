@@ -21,7 +21,7 @@ namespace NavalWar.API.Controllers
 
             return map;
         }
-        
+
         /*
         // GET api/<GamingMapController>/5
         [HttpGet("{id}")]
@@ -53,17 +53,17 @@ namespace NavalWar.API.Controllers
 
             return MapList.Find(element => element.MapID == 1);
         }
-        
+        */
+
         // POST api/<GamingMapController>
         [HttpPost]
-        public void Post([FromBody] GamingMap map, Ship ship, int position)
+        public void Post([FromBody] GamingMap map, [FromBody] Ship ship, [FromBody] int position)
         {
-
         }
-
+        
         // PUT api/<GamingMapController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] GamingMap map, [FromBody] int position)
         {
         }
 
@@ -71,6 +71,13 @@ namespace NavalWar.API.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-        }*/
+        }
+
+        // PUT api/<GamingMapController>/5
+        [HttpPut("{id}")]
+        public void Put([FromBody] GamingMap map, [FromBody] int position)
+        {
+            map.AttackPlayer(position);
+        }
     }
 }
