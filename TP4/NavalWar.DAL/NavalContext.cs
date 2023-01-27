@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NavalWar.DAL.Models;
 
-namespace NavalWar.DAL
+namespace NavalWar.DAL.Repositories
 {
     public class NavalContext : DbContext
     {

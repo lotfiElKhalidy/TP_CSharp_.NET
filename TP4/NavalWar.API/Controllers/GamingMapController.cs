@@ -11,11 +11,11 @@ namespace NavalWar.API.Controllers
     {
         // GET: api/<GamingMapController>
         [HttpGet]
-        public GamingMap Get()
+        public GamingMapDto Get()
         {
             const int WIDTH = 5, HEIGHT = 5;
 
-            GamingMap map = new GamingMap();
+            GamingMapDto map = new GamingMapDto();
 
             map = map.CreateGamingMap(WIDTH, HEIGHT);
 
@@ -57,13 +57,13 @@ namespace NavalWar.API.Controllers
 
         // POST api/<GamingMapController>
         [HttpPost]
-        public void Post([FromBody] GamingMap map, [FromBody] Ship ship, [FromBody] int position)
+        public void Post([FromBody] GamingMapDto map, [FromBody] ShipDto ship, [FromBody] int position)
         {
         }
         
         // PUT api/<GamingMapController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] GamingMap map, [FromBody] int position)
+        public void Put(int id, [FromBody] GamingMapDto map, [FromBody] int position)
         {
         }
 
@@ -75,7 +75,7 @@ namespace NavalWar.API.Controllers
 
         // PUT api/<GamingMapController>/5
         [HttpPut("{id}")]
-        public void Put([FromBody] GamingMap map, [FromBody] int position)
+        public void Put([FromBody] GamingMapDto map, [FromBody] int position)
         {
             map.AttackPlayer(position);
         }
