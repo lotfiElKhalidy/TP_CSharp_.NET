@@ -4,5 +4,6 @@
     {
         public int ID { get; set; }
         public string token { get; set; }
+        public GamingMapDto map { get; set; }
     }
 }

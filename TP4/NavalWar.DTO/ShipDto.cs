@@ -1,4 +1,4 @@
-﻿namespace NavalWar.API
+﻿namespace NavalWar.DTO
 {
     public class ShipDto
     {
